@@ -1,9 +1,12 @@
-import { Observable } from 'rxjs';
+import { Subject } from 'rxjs';
 
-const observerWithParams = (params) => function observer(subscriber) {
-  subscriber.next(params)
-}
-
-const observable = new Observable(observerWithParams('Hello World!'));
+const observable = new Subject();
 
 observable.subscribe(console.log);
+
+observable.next(1);
+observable.next(2);
+observable.error('error from subject')
+observable.next(3);
+observable.complete();
+observable.next(4);
