@@ -1,12 +1,6 @@
-import { Subject } from 'rxjs';
+import { of, from } from 'rxjs';
 
-const observable = new Subject();
+const observable = of('some text', 2, 3);
+const observableFrom = from([1,2,3]);
 
-observable.subscribe(console.log);
-
-observable.next(1);
-observable.next(2);
-observable.error('error from subject')
-observable.next(3);
-observable.complete();
-observable.next(4);
+observableFrom.subscribe(console.log);
