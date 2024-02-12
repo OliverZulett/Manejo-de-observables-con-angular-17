@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Subject, from, of } from 'rxjs';
 import { ObservablesHandlerService } from './observables-handler.service';
+import { filter, map, withLatestFrom } from 'rxjs/operators';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -8,28 +9,30 @@ import { ObservablesHandlerService } from './observables-handler.service';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
-  valueFromObservable: number;
+  valueFromObservable: string;
 
-  private intervalValue = 1;
+  private printPairs$ = new Subject<boolean>();
 
   constructor(private observablesHandlerService: ObservablesHandlerService) {
-    this.valueFromObservable = 0;
+    this.valueFromObservable = '';
   }
 
   ngOnInit(): void {
-    this.observablesHandlerService.observable$.subscribe({
-      next: (value: number) => {
-        this.valueFromObservable = value;
-      },
-      complete: () => console.log('complete'),
-    });
-
-    this.observablesHandlerService.of$.subscribe(console.log)
-    this.observablesHandlerService.from$.subscribe(console.log)
+    this.observablesHandlerService.interval$
+      .pipe(
+        withLatestFrom(this.printPairs$),
+        filter(([value, printPairs]) => (printPairs && value % 2 === 0) || (!printPairs && value % 2 !== 0)),
+        map(([value, printPairs]) => `The value: ${value} is ${printPairs ? 'pair': 'odd'}`)
+      )
+      .subscribe(value => this.valueFromObservable = value);
   }
 
-  emitValue(): void {
-    this.observablesHandlerService.observable$.next(this.intervalValue++);
+  printPairs(): void {
+    this.printPairs$.next(true)
+  }
+
+  printOdds(): void {
+    this.printPairs$.next(false)
   }
 
   emitComplete(): void {
