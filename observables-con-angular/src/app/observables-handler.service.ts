@@ -8,7 +8,7 @@ export class ObservablesHandlerService {
   observable$ = new Subject<number>();
   of$ = of(1,2,3,4);
   from$ = from([1,2,3,4]);
-  interval$ = interval(200);
+  interval$ = interval(100);
 
   constructor() { }
 }

@@ -1,9 +1,25 @@
 <h1>Observable Values</h1>
 
-<button *ngIf="!showInterval" (click)="toggleInterval()">Show Interval</button>
-<button *ngIf="showInterval" (click)="toggleInterval()">Hide Interval</button>
+<button *ngIf="!showPairs" (click)="togglePairs()">Show Pairs</button>
+<button *ngIf="showPairs" (click)="togglePairs()">Hide Pairs</button>
+
+<button *ngIf="!showOdds" (click)="toggleOdds()">Show Odds</button>
+<button *ngIf="showOdds" (click)="toggleOdds()">Hide Odds</button>
+
+<button *ngIf="!showFactorOf3" (click)="toggleFactorOf3()">Show factor of 3</button>
+<button *ngIf="showFactorOf3" (click)="toggleFactorOf3()">Hide factor of 3</button>
 
 <app-interval-container 
-  *ngIf="showInterval"
-  [interval$]="interval$"
+  *ngIf="showPairs"
+  [value$]="pairs$"
+></app-interval-container>
+
+<app-interval-container 
+  *ngIf="showOdds"
+  [value$]="odds$"
+></app-interval-container>
+
+<app-interval-container 
+  *ngIf="showFactorOf3"
+  [value$]="factorOf3$"
 ></app-interval-container>
