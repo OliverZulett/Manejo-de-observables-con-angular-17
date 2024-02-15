@@ -1,8 +1,9 @@
 <h1>Observable Values</h1>
 
-<p>{{valueFromObservable}}</p>
+<button *ngIf="!showInterval" (click)="toggleInterval()">Show Interval</button>
+<button *ngIf="showInterval" (click)="toggleInterval()">Hide Interval</button>
 
-<!-- <button (click)="emitValue()">emit value</button> -->
-<button (click)="printPairs()">print pairs</button>
-<button (click)="printOdds()">print odds</button>
-<button (click)="emitComplete()">emit complete</button>
+<app-interval-container 
+  *ngIf="showInterval"
+  [interval$]="interval$"
+></app-interval-container>
