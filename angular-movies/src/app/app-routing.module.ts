@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { MovieComponent } from './pages/movie/movie.component';
 import { MovieListComponent } from './pages/movie-list/movie-list.component';
 import { EditMovieComponent } from './pages/edit-movie/edit-movie.component';
+import { CreateMovieComponent } from './pages/create-movie/create-movie.component';
 
 const routes: Routes = [
   {
@@ -16,6 +17,10 @@ const routes: Routes = [
   {
     path: 'edit-movie/:id',
     component: EditMovieComponent,
+  },
+  {
+    path: 'create-movie/:id',
+    component: CreateMovieComponent,
   },
   {
     path: '**',

@@ -5,9 +5,10 @@ import { MovieComponent } from './movie/movie.component';
 import { RouterModule } from '@angular/router';
 import { EditMovieComponent } from './edit-movie/edit-movie.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { CreateMovieComponent } from './create-movie/create-movie.component';
 
 @NgModule({
-  declarations: [MovieListComponent, MovieComponent, EditMovieComponent],
+  declarations: [MovieListComponent, MovieComponent, EditMovieComponent, CreateMovieComponent],
   imports: [CommonModule, RouterModule, ReactiveFormsModule],
   exports: [MovieListComponent, MovieComponent, EditMovieComponent],
 })
