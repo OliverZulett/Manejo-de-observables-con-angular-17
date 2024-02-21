@@ -2,11 +2,11 @@
   <div class="movie-description flex xl:mt-16 flex-col xl:flex-row">
     <div class="w-full h-auto sm:h-[30rem] md:h-[40rem] xl:w-6/12 xl:h-auto  justify-center flex xl:p-8">
       <img class="poster xl:rounded-2xl xl:h-5/6 w-full xl:w-auto object-cover"
-        src="https://daisyui.com/images/stock/photo-1559703248-dcaaec9fab78.jpg" alt="poster">
+        [src]="movie.backdrop_path" alt="poster">
     </div>
     <div class="w-full xl:w-6/12 px-5 xl:px-0 mt-8 xl:mt-0">
       <div class="title mb-5">
-        <h1 class="text-7xl font-semibold">Title</h1>
+        <h1 class="text-7xl font-semibold">{{movie.title}}</h1>
       </div>
       <div class="ratign mb-5">
         <div class="rating">
@@ -19,32 +19,31 @@
       </div>
       <div class="overview mb-5">
         <h1 class="text-2xl font-normal mb-3">Overview: </h1>
-        <p class="text-md">Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae ab, eaque repudiandae
-          quos modi omnis
-          corrupti id praesentium cupiditate ipsam odit error dolores voluptatibus perspiciatis similique quis iusto
-          doloribus deserunt.</p>
+        <p class="text-md">{{movie.overview}}</p>
       </div>
       <div class="release-date mb-5">
         <h1 class="text-2xl font-normal mb-3">Release Date: </h1>
-        <p class="text-lg">12 march 2021</p>
+        <p class="text-lg">{{movie.release_date | date}}</p>
       </div>
       <div class="genres mb-5">
         <h1 class="text-2xl font-normal mb-3">Genres: </h1>
         <div>
-          <div class="m-1 p-5 text-lg badge badge-primary">primary</div>
-          <div class="m-1 p-5 text-lg badge badge-secondary">secondary</div>
-          <div class="m-1 p-5 text-lg badge badge-accent">accent</div>
+          <ng-container *ngFor="let genre of movie.genres">
+            <div class="m-1 p-5 text-lg badge badge-secondary">{{genre.name}}</div>
+          </ng-container>
         </div>
       </div>
       <div class="production_companies mb-5">
         <h1 class="text-2xl font-normal mb-3">Producers: </h1>
         <div class="mb-5 flex flex-wrap">
-          <div class="avatar flex flex-col justify-center items-center mx-3 mb-3">
-            <div class="w-24 rounded-full">
-              <img src="https://daisyui.com/images/stock/photo-1559703248-dcaaec9fab78.jpg" />
+          <ng-container *ngFor="let producer of movie.production_companies">
+            <div class="avatar flex flex-col justify-center items-center mx-3 mb-3">
+              <div class="w-24 rounded-full object-cover">
+                <img [src]="producer.logo_path" />
+              </div>
+              <p>{{producer.name}}</p>
             </div>
-            <p>Warner</p>
-          </div>
+          </ng-container>
         </div>
       </div>
       <div class="statistics mb-5">
@@ -53,27 +52,27 @@
           <div class="stats shadow">
             <div class="stat place-items-center">
               <div class="stat-title">Budget</div>
-              <div class="stat-value">31K</div>
+              <div class="stat-value">{{movie.budget}}</div>
               <!-- <div class="stat-desc">From January 1st to February 1st</div> -->
             </div>
 
             <div class="stat place-items-center">
               <div class="stat-title">Popularity</div>
-              <div class="stat-value text-secondary">4,200</div>
+              <div class="stat-value text-secondary">{{movie.popularity}}</div>
               <!-- <div class="stat-desc text-secondary">↗︎ 40 (2%)</div> -->
             </div>
 
             <div class="stat place-items-center">
               <div class="stat-title">Revenue</div>
-              <div class="stat-value">1,200</div>
+              <div class="stat-value">{{movie.revenue}}</div>
               <!-- <div class="stat-desc">↘︎ 90 (14%)</div> -->
             </div>
           </div>
         </div>
       </div>
-      <div class="homepage mb-5">
+      <div *ngIf="movie.homepage" class="homepage mb-5">
         <h1 class="text-2xl font-normal mb-3">Homepage: </h1>
-        <a class="link link-accent">www.google.com</a>
+        <a class="link link-accent">{{movie.homepage}}</a>
       </div>
       <div class="actions mb-5">
         <h1 class="text-2xl font-normal mb-3">Actions: </h1>
