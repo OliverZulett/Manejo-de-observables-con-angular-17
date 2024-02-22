@@ -6,6 +6,8 @@ import { Component } from '@angular/core';
   styleUrl: './movie-list.component.scss',
 })
 export class MovieListComponent {
+  showModal = false;
+
   movies: any = [
     {
       id: '123',
@@ -15,4 +17,8 @@ export class MovieListComponent {
       overview: 'description',
     },
   ];
+
+  showMovieForm(): void {
+    this.showModal = !this.showModal;
+  }
 }

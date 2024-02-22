@@ -3,13 +3,12 @@ import { CommonModule } from '@angular/common';
 import { MovieListComponent } from './movie-list/movie-list.component';
 import { MovieComponent } from './movie/movie.component';
 import { RouterModule } from '@angular/router';
-import { EditMovieComponent } from './edit-movie/edit-movie.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { CreateMovieComponent } from './create-movie/create-movie.component';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
-  declarations: [MovieListComponent, MovieComponent, EditMovieComponent, CreateMovieComponent],
-  imports: [CommonModule, RouterModule, ReactiveFormsModule],
-  exports: [MovieListComponent, MovieComponent, EditMovieComponent],
+  declarations: [MovieListComponent, MovieComponent],
+  imports: [CommonModule, RouterModule, ReactiveFormsModule, SharedModule],
+  exports: [MovieListComponent, MovieComponent],
 })
 export class PagesModule {}

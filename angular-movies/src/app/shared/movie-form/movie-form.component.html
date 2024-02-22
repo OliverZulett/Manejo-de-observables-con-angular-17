@@ -1,0 +1,62 @@
+<dialog id="movieForm" class="modal pointer-events-auto visible opacity-100 bg-[#00000066]">
+  <div class="modal-box max-w-7xl">
+    <div class="px-5 mt-8 mb-12">
+      <div class="my-5">
+        <h1 class="text-5xl font-semibold">Edit Movie</h1>
+      </div>
+      <form>
+        <div class="flex flex-col mb-2">
+          <label class="my-2 ml-3 text-xl font-normal" for="title">Title:</label>
+          <input type="text" placeholder="Title" name="title" class="input input-bordered w-full" />
+        </div>
+        <div class="flex flex-col mb-2">
+          <label class="my-2 ml-3 text-xl font-normal" for="overview">Overview:</label>
+          <textarea class="textarea textarea-bordered" placeholder="Overview" name="overview"></textarea>
+        </div>
+        <div class="flex flex-col mb-2">
+          <label class="my-2 ml-3 text-xl font-normal" for="image">Image:</label>
+          <input type="text" placeholder="www.movie.com/img.png" name="image" class="input input-bordered w-full" />
+        </div>
+        <div class="flex flex-col mb-2">
+          <label class="my-2 ml-3 text-xl font-normal" for="release-date">Release Date:</label>
+          <input type="date" name="release-date" class="input input-bordered w-full" />
+        </div>
+        <div class="flex flex-col mb-2">
+          <label class="my-2 ml-3 text-xl font-normal" for="budget">Budget:</label>
+          <input type="number" name="budget" placeholder="100000" class="input input-bordered w-full" />
+        </div>
+        <div class="flex flex-col mb-2">
+          <label class="my-2 ml-3 text-xl font-normal" for="revenue">Revenue:</label>
+          <input type="number" name="revenue" placeholder="100000" class="input input-bordered w-full" />
+        </div>
+        <div class="flex flex-col mb-2">
+          <label class="my-2 ml-3 text-xl font-normal" for="popularity">Popularity:</label>
+          <input type="number" name="popularity" placeholder="1000" class="input input-bordered w-full" />
+        </div>
+        <div class="flex flex-col mb-2">
+          <label class="my-2 ml-3 text-xl font-normal" for="homepage">Homepage:</label>
+          <input type="text" placeholder="www.movie.com" name="homepage" class="input input-bordered w-full" />
+        </div>
+        <div class="flex justify-end my-8">
+
+          <button class="mr-3 btn btn-outline btn-primary">Cancel <svg xmlns="http://www.w3.org/2000/svg" width="16"
+              height="16" fill="currentColor" class="bi bi-x-circle" viewBox="0 0 16 16">
+              <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
+              <path
+                d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708" />
+            </svg></button>
+          <button [routerLink]="['/movie/123']" class="btn btn-outline btn-accent">
+            Save
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+              class="bi bi-camera-reels" viewBox="0 0 16 16">
+              <path d="M6 3a3 3 0 1 1-6 0 3 3 0 0 1 6 0M1 3a2 2 0 1 0 4 0 2 2 0 0 0-4 0" />
+              <path
+                d="M9 6h.5a2 2 0 0 1 1.983 1.738l3.11-1.382A1 1 0 0 1 16 7.269v7.462a1 1 0 0 1-1.406.913l-3.111-1.382A2 2 0 0 1 9.5 16H2a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2zm6 8.73V7.27l-3.5 1.555v4.35zM1 8v6a1 1 0 0 0 1 1h7.5a1 1 0 0 0 1-1V8a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1" />
+              <path d="M9 6a3 3 0 1 0 0-6 3 3 0 0 0 0 6M7 3a2 2 0 1 1 4 0 2 2 0 0 1-4 0" />
+            </svg>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</dialog>
