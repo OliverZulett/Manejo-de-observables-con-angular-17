@@ -3,10 +3,12 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { IntervalContainerComponent } from './interval-container/interval-container.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    IntervalContainerComponent
   ],
   imports: [
     BrowserModule,
