@@ -1,167 +1,171 @@
-<div class="xl:my-20">
-  <div class="movie-description flex xl:mt-16 flex-col xl:flex-row">
-    <div class="w-full h-auto sm:h-[30rem] md:h-[40rem] xl:w-6/12 xl:h-auto  justify-center flex xl:p-8">
-      <img class="poster xl:rounded-2xl xl:h-5/6 w-full xl:w-auto object-cover object-top" [src]="movie.backdrop_path"
-        alt="poster">
-    </div>
-    <div class="w-full xl:w-6/12 px-5 xl:px-0 mt-8 xl:mt-0">
-      <div class="title mb-5">
-        <h1 class="text-7xl font-semibold">{{movie.title}}</h1>
+<ng-container *ngIf="(movie$ | async) as movie">
+
+  <div class="xl:my-20">
+    <div class="movie-description flex xl:mt-16 flex-col xl:flex-row">
+      <div class="w-full h-auto sm:h-[30rem] md:h-[40rem] xl:w-6/12 xl:h-auto  justify-center flex xl:p-8">
+        <img class="poster xl:rounded-2xl xl:h-5/6 w-full xl:w-auto object-cover object-top" [src]="movie.backdrop_path"
+          alt="poster">
       </div>
-      <div class="ratign mb-5">
-        <div class="rating">
-          <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" />
-          <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" checked />
-          <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" />
-          <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" />
-          <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" />
+      <div class="w-full xl:w-6/12 px-5 xl:px-0 mt-8 xl:mt-0">
+        <div class="title mb-5">
+          <h1 class="text-7xl font-semibold">{{movie.title}}</h1>
         </div>
-      </div>
-
-      <div *ngIf="movie?.overview" class="overview mb-5">
-        <h1 class="text-2xl font-normal mb-3">Overview: </h1>
-        <p class="text-md">{{movie.overview}}</p>
-      </div>
-
-      <div *ngIf="movie?.release_date" class="release-date mb-5">
-        <h1 class="text-2xl font-normal mb-3">Release Date: </h1>
-        <p class="text-lg">{{movie.release_date | date}}</p>
-      </div>
-
-      <div *ngIf="movie.genres.length > 0" class="genres mb-5">
-        <h1 class="text-2xl font-normal mb-3">Genres: </h1>
-        <div>
-          <ng-container *ngFor="let genre of movie.genres">
-            <div class="m-1 p-5 text-lg badge badge-secondary">{{genre.name}}</div>
-          </ng-container>
+        <div class="ratign mb-5">
+          <div class="rating">
+            <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" />
+            <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" checked />
+            <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" />
+            <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" />
+            <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" />
+          </div>
         </div>
-      </div>
-
-      <div *ngIf="movie.production_companies.length > 0" class="production_companies mb-5">
-        <h1 class="text-2xl font-normal mb-3">Producers: </h1>
-        <div class="mb-5 flex flex-wrap">
-          <ng-container *ngFor="let producer of movie.production_companies">
-            <div class="avatar flex flex-col justify-center items-center mx-3 mb-3">
-              <div class="w-24 rounded-full object-cover">
-                <img [src]="producer.logo_path" />
+  
+        <div *ngIf="movie?.overview" class="overview mb-5">
+          <h1 class="text-2xl font-normal mb-3">Overview: </h1>
+          <p class="text-md">{{movie.overview}}</p>
+        </div>
+  
+        <div *ngIf="movie?.release_date" class="release-date mb-5">
+          <h1 class="text-2xl font-normal mb-3">Release Date: </h1>
+          <p class="text-lg">{{movie.release_date | date}}</p>
+        </div>
+  
+        <div *ngIf="movie.genres.length > 0" class="genres mb-5">
+          <h1 class="text-2xl font-normal mb-3">Genres: </h1>
+          <div>
+            <ng-container *ngFor="let genre of movie.genres">
+              <div class="m-1 p-5 text-lg badge badge-secondary">{{genre.name}}</div>
+            </ng-container>
+          </div>
+        </div>
+  
+        <div *ngIf="movie.production_companies.length > 0" class="production_companies mb-5">
+          <h1 class="text-2xl font-normal mb-3">Producers: </h1>
+          <div class="mb-5 flex flex-wrap">
+            <ng-container *ngFor="let producer of movie.production_companies">
+              <div class="avatar flex flex-col justify-center items-center mx-3 mb-3">
+                <div class="w-24 rounded-full object-cover">
+                  <img [src]="producer.logo_path" />
+                </div>
+                <p>{{producer.name}}</p>
               </div>
-              <p>{{producer.name}}</p>
-            </div>
-          </ng-container>
+            </ng-container>
+          </div>
         </div>
-      </div>
-
-      <div *ngIf="movie.budget || movie.popularity || movie.revenue" class="statistics mb-5">
-        <h1 class="text-2xl font-normal mb-3">Statistics: </h1>
-        <div class="flex justify-center xl:justify-start">
-          <div class="stats shadow">
-            <div *ngIf="movie.budget" class="stat place-items-center">
-              <div class="stat-title">Budget</div>
-              <div class="stat-value">{{movie.budget}}</div>
-              <!-- <div class="stat-desc">From January 1st to February 1st</div> -->
-            </div>
-
-            <div *ngIf="movie.popularity" class="stat place-items-center">
-              <div class="stat-title">Popularity</div>
-              <div class="stat-value text-secondary">{{movie.popularity}}</div>
-              <!-- <div class="stat-desc text-secondary">↗︎ 40 (2%)</div> -->
-            </div>
-
-            <div *ngIf="movie.revenue" class="stat place-items-center">
-              <div class="stat-title">Revenue</div>
-              <div class="stat-value">{{movie.revenue}}</div>
-              <!-- <div class="stat-desc">↘︎ 90 (14%)</div> -->
+  
+        <div *ngIf="movie.budget || movie.popularity || movie.revenue" class="statistics mb-5">
+          <h1 class="text-2xl font-normal mb-3">Statistics: </h1>
+          <div class="flex justify-center xl:justify-start">
+            <div class="stats shadow">
+              <div *ngIf="movie.budget" class="stat place-items-center">
+                <div class="stat-title">Budget</div>
+                <div class="stat-value">{{movie.budget}}</div>
+                <!-- <div class="stat-desc">From January 1st to February 1st</div> -->
+              </div>
+  
+              <div *ngIf="movie.popularity" class="stat place-items-center">
+                <div class="stat-title">Popularity</div>
+                <div class="stat-value text-secondary">{{movie.popularity}}</div>
+                <!-- <div class="stat-desc text-secondary">↗︎ 40 (2%)</div> -->
+              </div>
+  
+              <div *ngIf="movie.revenue" class="stat place-items-center">
+                <div class="stat-title">Revenue</div>
+                <div class="stat-value">{{movie.revenue}}</div>
+                <!-- <div class="stat-desc">↘︎ 90 (14%)</div> -->
+              </div>
             </div>
           </div>
         </div>
-      </div>
-
-      <div *ngIf="movie.homepage" class="homepage mb-5">
-        <h1 class="text-2xl font-normal mb-3">Homepage: </h1>
-        <a class="link link-accent">{{movie.homepage}}</a>
-      </div>
-      <div class="actions mb-5">
-        <h1 class="text-2xl font-normal mb-3">Actions: </h1>
-        <button (click)="showMovieForm()" class="mr-3 btn btn-outline btn-accent">
-          Edit
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil"
-            viewBox="0 0 16 16">
-            <path
-              d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325" />
-          </svg>
-        </button>
-        <button class="mr-3 btn btn-outline btn-primary" onclick="removeModal.showModal()">Remove
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash"
-            viewBox="0 0 16 16">
-            <path
-              d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z" />
-            <path
-              d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z" />
-          </svg>
-        </button>
+  
+        <div *ngIf="movie.homepage" class="homepage mb-5">
+          <h1 class="text-2xl font-normal mb-3">Homepage: </h1>
+          <a class="link link-accent">{{movie.homepage}}</a>
+        </div>
+        <div class="actions mb-5">
+          <h1 class="text-2xl font-normal mb-3">Actions: </h1>
+          <button (click)="showMovieForm()" class="mr-3 btn btn-outline btn-accent">
+            Edit
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil"
+              viewBox="0 0 16 16">
+              <path
+                d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325" />
+            </svg>
+          </button>
+          <button class="mr-3 btn btn-outline btn-primary" onclick="removeModal.showModal()">Remove
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash"
+              viewBox="0 0 16 16">
+              <path
+                d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z" />
+              <path
+                d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z" />
+            </svg>
+          </button>
+        </div>
       </div>
     </div>
-  </div>
-
-  <div *ngIf="images.backdrops.length > 0" class="movie-gallery mt-16">
-    <details class="collapse bg-base-200">
-      <summary class="collapse-title text-3xl font-medium">Gallery</summary>
-      <div class="collapse-content flex flex-wrap">
-        <ng-container *ngFor="let image of images.backdrops">
-          <img [src]="image.file_path" class="rounded-2xl h-56 m-3" alt="Tailwind CSS Carousel component" />
-        </ng-container>
-      </div>
-    </details>
-  </div>
-
-  <div *ngIf="reviews.results.length > 0" class="movie-gallery mt-10">
-    <details class="collapse bg-base-200">
-      <summary class="collapse-title text-3xl font-medium">Reviews</summary>
-      <div class="collapse-content">
-        <ng-container *ngFor="let review of reviews.results">
-          <div class="review flex m-7 mb-10">
-            <div class="avatar">
-              <div class="w-16 h-16 mr-5 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-                <img src="https://daisyui.com/images/stock/photo-1559703248-dcaaec9fab78.jpg" />
+  
+    <div *ngIf="images.backdrops.length > 0" class="movie-gallery mt-16">
+      <details class="collapse bg-base-200">
+        <summary class="collapse-title text-3xl font-medium">Gallery</summary>
+        <div class="collapse-content flex flex-wrap">
+          <ng-container *ngFor="let image of images.backdrops">
+            <img [src]="image.file_path" class="rounded-2xl h-56 m-3" alt="Tailwind CSS Carousel component" />
+          </ng-container>
+        </div>
+      </details>
+    </div>
+  
+    <div *ngIf="reviews.results.length > 0" class="movie-gallery mt-10">
+      <details class="collapse bg-base-200">
+        <summary class="collapse-title text-3xl font-medium">Reviews</summary>
+        <div class="collapse-content">
+          <ng-container *ngFor="let review of reviews.results">
+            <div class="review flex m-7 mb-10">
+              <div class="avatar">
+                <div class="w-16 h-16 mr-5 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+                  <img src="https://daisyui.com/images/stock/photo-1559703248-dcaaec9fab78.jpg" />
+                </div>
+              </div>
+              <div class="content flex flex-col">
+                <div class="name text-lg font-medium text-secondary">{{review.author}}</div>
+                <div class="review text-md">
+                  {{review.content}}
+                </div>
               </div>
             </div>
-            <div class="content flex flex-col">
-              <div class="name text-lg font-medium text-secondary">{{review.author}}</div>
-              <div class="review text-md">
-                {{review.content}}
-              </div>
-            </div>
-          </div>
-        </ng-container>
-      </div>
-    </details>
-  </div>
-</div>
-
-<dialog id="removeModal" class="modal">
-  <div class="modal-box">
-    <h3 class="font-bold text-lg">Warning!</h3>
-    <p class="py-4">Are you sure you want to delete this movie?</p>
-    <div class="modal-action">
-      <form method="dialog">
-        <button class="mr-3 btn btn-primary">Remove <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-            fill="currentColor" class="bi bi-exclamation-triangle" viewBox="0 0 16 16">
-            <path
-              d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.15.15 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.2.2 0 0 1-.054.06.1.1 0 0 1-.066.017H1.146a.1.1 0 0 1-.066-.017.2.2 0 0 1-.054-.06.18.18 0 0 1 .002-.183L7.884 2.073a.15.15 0 0 1 .054-.057m1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767z" />
-            <path
-              d="M7.002 12a1 1 0 1 1 2 0 1 1 0 0 1-2 0M7.1 5.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0z" />
-          </svg></button>
-        <button class="mr-3 btn btn-accent">Cancel <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-            fill="currentColor" class="bi bi-x-circle" viewBox="0 0 16 16">
-            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
-            <path
-              d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708" />
-          </svg></button>
-      </form>
+          </ng-container>
+        </div>
+      </details>
     </div>
   </div>
-</dialog>
+  
+  <dialog id="removeModal" class="modal">
+    <div class="modal-box">
+      <h3 class="font-bold text-lg">Warning!</h3>
+      <p class="py-4">Are you sure you want to delete this movie?</p>
+      <div class="modal-action">
+        <form method="dialog">
+          <button class="mr-3 btn btn-primary">Remove <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+              fill="currentColor" class="bi bi-exclamation-triangle" viewBox="0 0 16 16">
+              <path
+                d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.15.15 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.2.2 0 0 1-.054.06.1.1 0 0 1-.066.017H1.146a.1.1 0 0 1-.066-.017.2.2 0 0 1-.054-.06.18.18 0 0 1 .002-.183L7.884 2.073a.15.15 0 0 1 .054-.057m1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767z" />
+              <path
+                d="M7.002 12a1 1 0 1 1 2 0 1 1 0 0 1-2 0M7.1 5.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0z" />
+            </svg></button>
+          <button class="mr-3 btn btn-accent">Cancel <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+              fill="currentColor" class="bi bi-x-circle" viewBox="0 0 16 16">
+              <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
+              <path
+                d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708" />
+            </svg></button>
+        </form>
+      </div>
+    </div>
+  </dialog>
+  
+  <ng-container *ngIf="showMovieFormModal">
+    <app-movie-form></app-movie-form>
+  </ng-container>
 
-<ng-container *ngIf="showMovieFormModal">
-  <app-movie-form></app-movie-form>
 </ng-container>
