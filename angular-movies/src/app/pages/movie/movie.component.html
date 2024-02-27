@@ -30,28 +30,32 @@
           <p class="text-lg">{{movie.release_date | date}}</p>
         </div>
   
-        <div *ngIf="movie.genres.length > 0" class="genres mb-5">
-          <h1 class="text-2xl font-normal mb-3">Genres: </h1>
-          <div>
-            <ng-container *ngFor="let genre of movie.genres">
-              <div class="m-1 p-5 text-lg badge badge-secondary">{{genre.name}}</div>
-            </ng-container>
+        <ng-container *ngIf="movie.genres">
+          <div *ngIf="movie.genres.length > 0" class="genres mb-5">
+            <h1 class="text-2xl font-normal mb-3">Genres: </h1>
+            <div>
+              <ng-container *ngFor="let genre of movie.genres">
+                <div class="m-1 p-5 text-lg badge badge-secondary">{{genre.name}}</div>
+              </ng-container>
+            </div>
           </div>
-        </div>
+        </ng-container>
   
-        <div *ngIf="movie.production_companies.length > 0" class="production_companies mb-5">
-          <h1 class="text-2xl font-normal mb-3">Producers: </h1>
-          <div class="mb-5 flex flex-wrap">
-            <ng-container *ngFor="let producer of movie.production_companies">
-              <div class="avatar flex flex-col justify-center items-center mx-3 mb-3">
-                <div class="w-24 rounded-full object-cover">
-                  <img [src]="producer.logo_path" />
+        <ng-container *ngIf="movie.production_companies">
+          <div *ngIf="movie.production_companies.length > 0" class="production_companies mb-5">
+            <h1 class="text-2xl font-normal mb-3">Producers: </h1>
+            <div class="mb-5 flex flex-wrap">
+              <ng-container *ngFor="let producer of movie.production_companies">
+                <div class="avatar flex flex-col justify-center items-center mx-3 mb-3">
+                  <div class="w-24 rounded-full object-cover">
+                    <img [src]="producer.logo_path" />
+                  </div>
+                  <p>{{producer.name}}</p>
                 </div>
-                <p>{{producer.name}}</p>
-              </div>
-            </ng-container>
+              </ng-container>
+            </div>
           </div>
-        </div>
+        </ng-container>
   
         <div *ngIf="movie.budget || movie.popularity || movie.revenue" class="statistics mb-5">
           <h1 class="text-2xl font-normal mb-3">Statistics: </h1>

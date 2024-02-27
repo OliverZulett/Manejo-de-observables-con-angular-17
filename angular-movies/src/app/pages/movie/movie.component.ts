@@ -119,7 +119,7 @@ export class MovieComponent implements OnInit {
   constructor(private moviesService: MoviesService) {}
 
   ngOnInit(): void {
-    this.movie$ = this.moviesService.getMovieById('680');
+    this.movie$ = this.moviesService.getMovieById('eb0a');
   }
 
   showMovieForm(): void {
