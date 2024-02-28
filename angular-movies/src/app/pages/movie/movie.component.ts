@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, switchMap } from 'rxjs';
 import { Movie } from '../../interfaces/movie';
 import { MoviesService } from '../../services/movies.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-movie',
@@ -11,7 +12,7 @@ import { MoviesService } from '../../services/movies.service';
 export class MovieComponent implements OnInit {
   showMovieFormModal = false;
 
-  movie$!: Observable<Movie>
+  movie$!: Observable<Movie>;
 
   images = {
     backdrops: [
@@ -115,11 +116,16 @@ export class MovieComponent implements OnInit {
     total_pages: 1,
     total_results: 7,
   };
-  
-  constructor(private moviesService: MoviesService) {}
+
+  constructor(
+    private moviesService: MoviesService,
+    private activatedRoute: ActivatedRoute
+  ) {}
 
   ngOnInit(): void {
-    this.movie$ = this.moviesService.getMovieById('eb0a');
+    this.movie$ = this.activatedRoute.params.pipe(
+      switchMap((params) => this.moviesService.getMovieById(params['id']))
+    );
   }
 
   showMovieForm(): void {

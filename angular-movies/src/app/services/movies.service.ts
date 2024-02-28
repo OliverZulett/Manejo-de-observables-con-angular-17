@@ -24,4 +24,8 @@ export class MoviesService {
   postMovie(movieRequest: MovieRequest): Observable<Movie> {
     return this.httpClient.post<Movie>(`${this.API_URL}/movies`, movieRequest);
   }
+
+  patchMovie(id: string, movieRequest: Partial<MovieRequest>): Observable<Movie> {
+    return this.httpClient.patch<Movie>(`${this.API_URL}/movies/${id}`, movieRequest);
+  }
 }
