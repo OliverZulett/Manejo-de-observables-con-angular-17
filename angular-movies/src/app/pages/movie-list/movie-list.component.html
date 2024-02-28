@@ -19,7 +19,7 @@
         <div class="card bg-neutral shadow-xl">
           <figure><img [src]="movie.backdrop_path" class="h-96 w-full object-cover object-top" /></figure>
           <div class="card-body">
-            <h2 class="card-title text-2xl">{{movie.original_title}}</h2>
+            <h2 class="card-title text-2xl">{{movie.title}}</h2>
             <p class="my-3 text-ellipsis line-clamp-3">{{movie.overview}}</p>
             <div class="card-actions justify-end">
               <button [routerLink]="['/movie/' + movie.id]" class="btn btn-primary">

@@ -1050,30 +1050,6 @@
       "homepage": ""
     },
     {
-      "id": "8221",
-      "backdrop_path": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/2R7RUo3EGs3T3UdKPlfVQWkyUCD.jpg",
-      "original_title": "Pelicula Ficticia",
-      "overview": "quia iusto velit",
-      "popularity": 1000,
-      "budget": 6000000,
-      "revenue": 245066411,
-      "release_date": "2024-02-14",
-      "title": "Pelicula Ficticia 2",
-      "homepage": ""
-    },
-    {
-      "id": "ddc0",
-      "backdrop_path": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/2R7RUo3EGs3T3UdKPlfVQWkyUCD.jpg",
-      "original_title": "Pelicula Ficticia",
-      "overview": "Consequatur sapiente rerum et repudiandae quia ut. Aliquid consectetur et culpa. Accusantium at laboriosam. Delectus doloremque et quae dolores natus sit quis. Iste blanditiis ea et. Voluptas in soluta ea.",
-      "popularity": 1000,
-      "budget": 1111111111,
-      "revenue": 245066411,
-      "release_date": "2024-02-14",
-      "title": "Pelicula Ficticia 14",
-      "homepage": ""
-    },
-    {
       "id": "f141",
       "title": "fake movie",
       "overview": "fake movie",
@@ -1085,14 +1061,14 @@
       "homepage": "www.fakemovie.com"
     },
     {
-      "id": "eb0a",
-      "title": "fake movie 2",
-      "overview": "fake movie 2",
-      "backdrop_path": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/v2NN1TMK3ifuiEyawa3ukkcSOUQ.jpg",
-      "release_date": "1234-12-12",
-      "budget": 5000,
-      "revenue": 6500,
-      "popularity": 120,
+      "id": "f2d2",
+      "title": "",
+      "overview": "",
+      "backdrop_path": "",
+      "release_date": "",
+      "budget": 0,
+      "revenue": 0,
+      "popularity": 0,
       "homepage": ""
     }
   ],

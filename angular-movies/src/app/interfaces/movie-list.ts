@@ -1,7 +1,7 @@
 export interface MovieList {
   id: string;
   backdrop_path: string;
-  original_title: string;
+  title: string;
   overview: string;
 }
 
