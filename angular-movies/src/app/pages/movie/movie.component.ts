@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Observable, Subject, map, switchMap, takeUntil } from 'rxjs';
+import { Observable, Subject, map, switchMap, takeUntil, tap } from 'rxjs';
 import { Movie } from '../../interfaces/movie';
 import { MoviesService } from '../../services/movies.service';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -7,6 +7,8 @@ import { Image } from '../../interfaces/image';
 import { Review } from '../../interfaces/review';
 import { ImagesService } from '../../services/images.service';
 import { ReviewsService } from '../../services/reviews.service';
+import { MovieFormState } from '../../state/movieform.state';
+import { FormType } from '../../enums/movieform.type';
 
 @Component({
   selector: 'app-movie',
@@ -20,12 +22,14 @@ export class MovieComponent implements OnInit, OnDestroy {
 
   images$!: Observable<Array<Image>>;
   reviews$!: Observable<Array<Review>>;
+  movieFormDisplayState$!: Observable<boolean>;
 
   private destroy$ = new Subject<void>();
 
   constructor(
     private moviesService: MoviesService,
     private imagesService: ImagesService,
+    private movieFormState: MovieFormState,
     private reviewsService: ReviewsService,
     private activatedRoute: ActivatedRoute,
     private router: Router
@@ -45,6 +49,14 @@ export class MovieComponent implements OnInit, OnDestroy {
       ),
       map((reviewsResponse) => reviewsResponse.results)
     );
+    this.movieFormDisplayState$ = this.movieFormState
+      .getDisplayState()
+      .pipe(
+        tap(
+          (movieFormDisplayState) =>
+            !movieFormDisplayState && this.loadMovieDetails()
+        )
+      );
   }
 
   deleteMovie(id: string): void {
@@ -55,11 +67,16 @@ export class MovieComponent implements OnInit, OnDestroy {
   }
 
   showMovieForm(): void {
-    this.showMovieFormModal = !this.showMovieFormModal;
+    this.movieFormState.setDisplayState(true);
+    this.movieFormState.setMovieFormTitle(FormType.update);
   }
 
   ngOnDestroy(): void {
     this.destroy$.next();
     this.destroy$.unsubscribe();
+  }
+
+  private loadMovieDetails(): void {
+    
   }
 }

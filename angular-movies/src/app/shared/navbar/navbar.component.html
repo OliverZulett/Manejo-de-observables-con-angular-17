@@ -1,9 +1,10 @@
 <div class="navbar bg-base-300 py-5">
   <div class="flex justify-between  w-full">
-    <button class="btn btn-ghost text-3xl" [routerLink]="['/movies']" routerLinkActive="router-link-active" >Angular Movies</button>
+    <button class="btn btn-ghost text-3xl" [routerLink]="['/movies']" routerLinkActive="router-link-active">Angular
+      Movies</button>
     <div class="text-xl mr-5 flex">
       <h2 class="text-secondary mr-2">Total Movies: </h2>
-      <h2 class="text-accent">333</h2>
+      <h2 class="text-accent">{{totalMovies$ | async}}</h2>
     </div>
   </div>
 </div>

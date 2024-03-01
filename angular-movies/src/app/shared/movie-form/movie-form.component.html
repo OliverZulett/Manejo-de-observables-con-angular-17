@@ -2,20 +2,23 @@
   <div class="modal-box max-w-7xl">
     <div class="px-5 mt-8 mb-12">
       <div class="my-5">
-        <h1 class="text-5xl font-semibold">Edit Movie</h1>
+        <h1 class="text-5xl font-semibold">{{movieFormTitle$ | async}}</h1>
       </div>
       <form [formGroup]="movieForm" (ngSubmit)="onSubmit()">
         <div class="flex flex-col mb-2">
           <label class="my-2 ml-3 text-xl font-normal" for="title">Title:</label>
-          <input formControlName="title" type="text" placeholder="Title" name="title" class="input input-bordered w-full" />
+          <input formControlName="title" type="text" placeholder="Title" name="title"
+            class="input input-bordered w-full" />
         </div>
         <div class="flex flex-col mb-2">
           <label class="my-2 ml-3 text-xl font-normal" for="overview">Overview:</label>
-          <textarea formControlName="overview" class="textarea textarea-bordered" placeholder="Overview" name="overview"></textarea>
+          <textarea formControlName="overview" class="textarea textarea-bordered" placeholder="Overview"
+            name="overview"></textarea>
         </div>
         <div class="flex flex-col mb-2">
           <label class="my-2 ml-3 text-xl font-normal" for="image">Image:</label>
-          <input formControlName="backdrop_path" type="text" placeholder="www.movie.com/img.png" name="image" class="input input-bordered w-full" />
+          <input formControlName="backdrop_path" type="text" placeholder="www.movie.com/img.png" name="image"
+            class="input input-bordered w-full" />
         </div>
         <div class="flex flex-col mb-2">
           <label class="my-2 ml-3 text-xl font-normal" for="release-date">Release Date:</label>
@@ -23,22 +26,26 @@
         </div>
         <div class="flex flex-col mb-2">
           <label class="my-2 ml-3 text-xl font-normal" for="budget">Budget:</label>
-          <input formControlName="budget" type="number" name="budget" placeholder="100000" class="input input-bordered w-full" />
+          <input formControlName="budget" type="number" name="budget" placeholder="100000"
+            class="input input-bordered w-full" />
         </div>
         <div class="flex flex-col mb-2">
           <label class="my-2 ml-3 text-xl font-normal" for="revenue">Revenue:</label>
-          <input formControlName="revenue" type="number" name="revenue" placeholder="100000" class="input input-bordered w-full" />
+          <input formControlName="revenue" type="number" name="revenue" placeholder="100000"
+            class="input input-bordered w-full" />
         </div>
         <div class="flex flex-col mb-2">
           <label class="my-2 ml-3 text-xl font-normal" for="popularity">Popularity:</label>
-          <input formControlName="popularity" type="number" name="popularity" placeholder="1000" class="input input-bordered w-full" />
+          <input formControlName="popularity" type="number" name="popularity" placeholder="1000"
+            class="input input-bordered w-full" />
         </div>
         <div class="flex flex-col mb-2">
           <label class="my-2 ml-3 text-xl font-normal" for="homepage">Homepage:</label>
-          <input formControlName="homepage" type="text" placeholder="www.movie.com" name="homepage" class="input input-bordered w-full" />
+          <input formControlName="homepage" type="text" placeholder="www.movie.com" name="homepage"
+            class="input input-bordered w-full" />
         </div>
         <div class="flex justify-end my-8">
-          <button class="mr-3 btn btn-outline btn-primary">Cancel <svg xmlns="http://www.w3.org/2000/svg" width="16"
+          <button (click)="onCancel()" class="mr-3 btn btn-outline btn-primary">Cancel <svg xmlns="http://www.w3.org/2000/svg" width="16"
               height="16" fill="currentColor" class="bi bi-x-circle" viewBox="0 0 16 16">
               <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
               <path

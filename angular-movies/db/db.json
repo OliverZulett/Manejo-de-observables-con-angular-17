@@ -1051,7 +1051,7 @@
     },
     {
       "id": "f141",
-      "title": "fake movie",
+      "title": "fake movie 2",
       "overview": "fake movie",
       "backdrop_path": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/4N55tgxDW0RRATyrZHbx0q9HUKv.jpg",
       "release_date": "12321-12-12",
@@ -1059,17 +1059,6 @@
       "revenue": 1000,
       "popularity": 1000,
       "homepage": "www.fakemovie.com"
-    },
-    {
-      "id": "f2d2",
-      "title": "",
-      "overview": "",
-      "backdrop_path": "",
-      "release_date": "",
-      "budget": 0,
-      "revenue": 0,
-      "popularity": 0,
-      "homepage": ""
     }
   ],
   "images": [
