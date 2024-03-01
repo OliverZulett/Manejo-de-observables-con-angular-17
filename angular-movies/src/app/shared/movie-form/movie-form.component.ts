@@ -14,7 +14,7 @@ import { MoviesState } from '../../state/movies.state';
   styleUrl: './movie-form.component.scss',
 })
 export class MovieFormComponent implements OnInit, OnDestroy {
-  @Input() movieData?: Partial<Movie>;
+  @Input() movieData?: Movie;
 
   movieForm!: FormGroup;
   movieFormTitle$!: Observable<FormType>;

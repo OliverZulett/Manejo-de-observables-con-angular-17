@@ -19,7 +19,7 @@ import { FormType } from '../../enums/formType';
 export class MovieComponent implements OnInit, OnDestroy {
   movieFormDisplayState$!: Observable<boolean>;
 
-  movie$!: Observable<Partial<Movie>>;
+  movie$!: Observable<Movie>;
 
   images$!: Observable<Array<Image>>;
   reviews$!: Observable<Array<Review>>;

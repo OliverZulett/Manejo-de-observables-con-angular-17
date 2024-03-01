@@ -7,7 +7,7 @@ import { Movie } from '../interfaces/movie';
 })
 export class MoviesState {
   private totalMovies$ = new Subject<number>();
-  private selectedMovie$ = new BehaviorSubject<Partial<Movie>>({} as Partial<Movie>);
+  private selectedMovie$ = new BehaviorSubject<Movie>({} as Movie);
 
   getTotalMovies(): Observable<number> {
     return this.totalMovies$;
@@ -17,11 +17,11 @@ export class MoviesState {
     this.totalMovies$.next(totalMovies);
   }
 
-  getSelectedMovie(): Observable<Partial<Movie>> {
+  getSelectedMovie(): Observable<Movie> {
     return this.selectedMovie$
   }
 
-  setSelectedMovie(selectedMovie: Partial<Movie>): void {
+  setSelectedMovie(selectedMovie: Movie): void {
     return this.selectedMovie$.next(selectedMovie)
   }
 }
