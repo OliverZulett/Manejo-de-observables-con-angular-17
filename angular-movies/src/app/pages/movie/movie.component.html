@@ -172,7 +172,7 @@
     </div>
   </dialog>
   
-  <ng-container *ngIf="showMovieFormModal">
+  <ng-container *ngIf="movieFormDisplayState$ | async">
     <app-movie-form [movieData]="movie"></app-movie-form>
   </ng-container>
 

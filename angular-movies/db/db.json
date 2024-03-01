@@ -2,81 +2,6 @@
   "movies": [
     {
       "adult": false,
-      "backdrop_path": "https://image.tmdb.org/t/p/w600_and_h900_bestv2/rSPw7tgCH9c6NqICZef4kZjFOQ5.jpg",
-      "belongs_to_collection": {
-        "id": 230,
-        "name": "El padrino - Trilogía",
-        "poster_path": "https://image.tmdb.org/t/p/w600_and_h900_bestv2/37uGlC0WqRv1QarP3auy0EpDwwf.jpg",
-        "backdrop_path": "https://image.tmdb.org/t/p/w600_and_h900_bestv2/mDMCET9Ens5ANvZAWRpluBsMAtS.jpg"
-      },
-      "budget": 6000000,
-      "genres": [
-        {
-          "id": 18,
-          "name": "Drama"
-        },
-        {
-          "id": 80,
-          "name": "Crimen"
-        }
-      ],
-      "homepage": "",
-      "id": "238",
-      "imdb_id": "tt0068646",
-      "original_language": "en",
-      "original_title": "The Godfather",
-      "overview": "Don Vito Corleone, conocido dentro de los círculos del hampa como 'El Padrino', es el patriarca de una de las cinco familias que ejercen el mando de la Cosa Nostra en Nueva York en los años cuarenta. Don Corleone tiene cuatro hijos: una chica, Connie, y tres varones; Sonny, Michael y Fredo. Cuando el Padrino reclina intervenir en el negocio de estupefacientes, empieza una cruenta lucha de violentos episodios entre las distintas familias del crimen organizado.",
-      "popularity": 97.604,
-      "poster_path": "https://image.tmdb.org/t/p/w600_and_h900_bestv2/ApiEfzSkrqS4m1L5a2GwWXzIiAs.jpg",
-      "production_companies": [
-        {
-          "id": 4,
-          "logo_path": "https://image.tmdb.org/t/p/w600_and_h900_bestv2/gz66EfNoYPqHTYI4q9UEN4CbHRc.png",
-          "name": "Paramount",
-          "origin_country": "US"
-        },
-        {
-          "id": 10211,
-          "logo_path": null,
-          "name": "Alfran Productions",
-          "origin_country": "US"
-        }
-      ],
-      "production_countries": [
-        {
-          "iso_3166_1": "US",
-          "name": "United States of America"
-        }
-      ],
-      "release_date": "1972-03-14",
-      "revenue": 245066411,
-      "runtime": 175,
-      "spoken_languages": [
-        {
-          "english_name": "English",
-          "iso_639_1": "en",
-          "name": "English"
-        },
-        {
-          "english_name": "Italian",
-          "iso_639_1": "it",
-          "name": "Italiano"
-        },
-        {
-          "english_name": "Latin",
-          "iso_639_1": "la",
-          "name": "Latin"
-        }
-      ],
-      "status": "Released",
-      "tagline": "Una oferta que no podrás rechazar",
-      "title": "El padrino",
-      "video": false,
-      "vote_average": 8.707,
-      "vote_count": 19426
-    },
-    {
-      "adult": false,
       "backdrop_path": "https://image.tmdb.org/t/p/w600_and_h900_bestv2/nMKdUUepR0i5zn0y1T4CsSB5chy.jpg",
       "belongs_to_collection": {
         "id": 263,
@@ -1044,14 +969,14 @@
       "overview": "quo beatae maxime",
       "popularity": 0,
       "release_date": "2024-02-14",
-      "title": "Pelicula Ficticia 2",
+      "title": "Pelicula Ficticia k",
       "budget": 0,
       "revenue": 0,
       "homepage": ""
     },
     {
       "id": "f141",
-      "title": "fake movie",
+      "title": "fake movie 4",
       "overview": "fake movie",
       "backdrop_path": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/4N55tgxDW0RRATyrZHbx0q9HUKv.jpg",
       "release_date": "12321-12-12",
@@ -1059,17 +984,6 @@
       "revenue": 1000,
       "popularity": 1000,
       "homepage": "www.fakemovie.com"
-    },
-    {
-      "id": "f2d2",
-      "title": "",
-      "overview": "",
-      "backdrop_path": "",
-      "release_date": "",
-      "budget": 0,
-      "revenue": 0,
-      "popularity": 0,
-      "homepage": ""
     }
   ],
   "images": [

@@ -48,6 +48,6 @@
   </div> -->
 </div>
 
-<ng-container *ngIf="showModal">
+<ng-container *ngIf="movieFormDisplayState$ | async">
   <app-movie-form></app-movie-form>
 </ng-container>

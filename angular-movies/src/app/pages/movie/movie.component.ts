@@ -7,6 +7,9 @@ import { Image } from '../../interfaces/image';
 import { Review } from '../../interfaces/review';
 import { ImagesService } from '../../services/images.service';
 import { ReviewsService } from '../../services/reviews.service';
+import { MoviesState } from '../../state/movies.state';
+import { MovieFormState } from '../../state/movieForm.state';
+import { FormType } from '../../enums/formType';
 
 @Component({
   selector: 'app-movie',
@@ -14,9 +17,9 @@ import { ReviewsService } from '../../services/reviews.service';
   styleUrl: './movie.component.scss',
 })
 export class MovieComponent implements OnInit, OnDestroy {
-  showMovieFormModal = false;
+  movieFormDisplayState$!: Observable<boolean>;
 
-  movie$!: Observable<Movie>;
+  movie$!: Observable<Partial<Movie>>;
 
   images$!: Observable<Array<Image>>;
   reviews$!: Observable<Array<Review>>;
@@ -27,14 +30,16 @@ export class MovieComponent implements OnInit, OnDestroy {
     private moviesService: MoviesService,
     private imagesService: ImagesService,
     private reviewsService: ReviewsService,
+    private movieFormState: MovieFormState,
+    private moviesState: MoviesState,
     private activatedRoute: ActivatedRoute,
     private router: Router
   ) {}
 
   ngOnInit(): void {
-    this.movie$ = this.activatedRoute.params.pipe(
-      switchMap((params) => this.moviesService.getMovieById(params['id']))
-    );
+    this.setSelectedMovie();
+    this.movie$ = this.moviesState.getSelectedMovie();
+
     this.images$ = this.activatedRoute.params.pipe(
       switchMap((params) => this.imagesService.getImageByMovieId(params['id'])),
       map((imagesResponse) => imagesResponse.backdrops)
@@ -45,6 +50,8 @@ export class MovieComponent implements OnInit, OnDestroy {
       ),
       map((reviewsResponse) => reviewsResponse.results)
     );
+
+    this.movieFormDisplayState$ = this.movieFormState.getDisplayState();
   }
 
   deleteMovie(id: string): void {
@@ -55,11 +62,21 @@ export class MovieComponent implements OnInit, OnDestroy {
   }
 
   showMovieForm(): void {
-    this.showMovieFormModal = !this.showMovieFormModal;
+    this.movieFormState.setDisplayState(true);
+    this.movieFormState.setMovieFormTitle(FormType.update);
   }
 
   ngOnDestroy(): void {
     this.destroy$.next();
     this.destroy$.unsubscribe();
+  }
+
+  private setSelectedMovie(): void {
+    this.activatedRoute.params
+      .pipe(
+        takeUntil(this.destroy$),
+        switchMap((params) => this.moviesService.getMovieById(params['id']))
+      )
+      .subscribe((movie) => this.moviesState.setSelectedMovie(movie));
   }
 }
