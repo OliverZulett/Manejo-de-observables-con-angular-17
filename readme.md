@@ -4,16 +4,15 @@
 
 <h1 align="center"> Manejo de Observables con Angular 17 </h1>
 
-<h2 align="center"> Seccion 5 - Clase 3: Comunicación de componentes con BehaviorSubjects </h1>
-
 ### Descripción:
 Este repositorio contiene todo el avance del curso de OpenWebinars: Manejo de observables con Angular 17.
 
-Esta rama contiene el código relacionado al avance de la clase 3 de la sección 5 en la que vimos como comunicar componentes atraves del uso de BehaviorSubjects en nuestro proyecto Angular movies.
+Esta rama contiene el código relacionado al avance de todas las secciones en el curso.
 
 ### Documentación:
 
-* [Angular CLI](https://angular.io/cli)
+* [Angular 17](https://angular.io/cli)
+* [Rxjs](https://rxjs.dev/guide/overview)
 
 ### Requerimientos:
 Para ejecutar este proyecto necesitas tener instalado: 
@@ -21,19 +20,15 @@ Para ejecutar este proyecto necesitas tener instalado:
 * [Angular CLI](https://angular.io/cli)
 
 ### Instalación:
-* acceder a la carpeta angular-movies y ejecutar:
+* acceder a la carpeta angular-movies o fundamentos-de-rxjs o observables-con-angular y ejecutar:
 
 ```bash
 npm install
 ```
 
 ### Ejecución:
-* acceder a la carpeta angular-movies y ejecutar:
+* para ejecutar el proyecto final del curso acceder a la carpeta angular-movies y ejecutar:
 
 ```bash
 ng s
-```
-* o:
-```bash
-npm run start
 ```
