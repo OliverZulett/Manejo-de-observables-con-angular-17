@@ -4,16 +4,17 @@
 
 <h1 align="center"> Manejo de Observables con Angular 17 </h1>
 
-<h2 align="center"> Seccion 2 - Clase 3: Observables en rxjs </h1>
+<h2 align="center"> Seccion 2 - Clase 4: Observers y Subscribers en rxjs </h1>
 
 ### Descripción:
 Este repositorio contiene todo el avance del curso de OpenWebinars: Manejo de observables con Angular 17.
 
-Esta rama contiene el código relacionado al avance de la clase 3 de la sección 2 en la que vimos el manejo de observables en un proyecto js con rxjs..
+Esta rama contiene el código relacionado al avance de la clase 4 de la sección 2 en la que vimos el manejo de observers y subscribers en un proyecto js con rxjs.
 
 ### Documentación:
 
-* [Observables en RxJS](https://rxjs.dev/guide/observable)
+* [Observers en RxJS](https://rxjs.dev/guide/observer)
+* [Subscriptions en RxJS](https://rxjs.dev/guide/subscription)
 
 ### Requerimientos:
 Para ejecutar este proyecto necesitas tener instalado: 
@@ -30,5 +31,6 @@ npm install
 * acceder a la carpeta fundamentos-de-rxjs y ejecutar:
 
 ```bash
-node observables.js
+node observers.js
+node subscriptions.js
 ```
